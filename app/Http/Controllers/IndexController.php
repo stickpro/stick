@@ -24,7 +24,7 @@ class IndexController extends Controller
 
         // Получаем все портфолио из БД
         $portfolios = Portfolio::all([
-            'name', 'filter', 'images', 'url', 'alias',
+            'id', 'name', 'filter', 'images', 'url', 'alias',
         ]);
 
 	    $menu = [];
@@ -45,5 +45,18 @@ class IndexController extends Controller
             'portfolios' => $portfolios,
             'tags' => $tags,
         ]);
+    }
+
+    /**
+     * Детали портфолио по ID
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function portfolioDetails ($id)
+    {
+        $portfolio = Portfolio::whereId($id)->firstOrFail();
+
+        return view('site.partials.portfolio')->with(['portfolio' => $portfolio]);
     }
 }

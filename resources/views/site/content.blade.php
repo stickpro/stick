@@ -356,7 +356,7 @@
                                             <div id="folio_container">
                                                @foreach($portfolios as $portfolio)
                                                     <div class="box grid-2 notvisible open-project-link mix {{ $portfolio->filter }} mix_all">
-                                                        <a href="/projects/project-ajax.html" class="open-project">
+                                                        <a href="{{ route('portfolio.details', ['id' => $portfolio->id]) }}" class="open-project">
                                                             <div class="folio-img-holder">
                                                                 <img src="{{ asset('assets/images/folio/' . $portfolio->images) }}" class="respimg transition" alt="{{ $portfolio->name }}" title="{{ $portfolio->name }}">
                                                                 <div class="folio-item">

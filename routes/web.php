@@ -11,11 +11,13 @@
 |
 */
 
-Route::group(['middleware'=>'web'], function() {
-	Route::match(['get', 'post'], '/', ['uses'=>'IndexController@execute','as'=>'home']);
-	   Route::get('/page/{alias}', ['uses' => 'PageController@execute', 'as' => 'page']);
-	Route::auth();
-});
+Route::match(['get', 'post'], '/', ['uses'=>'IndexController@execute','as'=>'home']);
+Route::get('/page/{alias}', ['uses' => 'PageController@execute', 'as' => 'page']);
+Route::auth();
+
+// Подгружаемое портфолио
+Route::get('/portfolio/{id}', 'IndexController@portfolioDetails')->name('portfolio.details');
+
 //admin
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'] , function() {
 	Route::get('/', function (){
