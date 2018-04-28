@@ -355,21 +355,21 @@
                                         <div class="span12">
                                             <div id="folio_container">
                                                @foreach($portfolios as $portfolio)
-                                                <div class="box grid-2 notvisible open-project-link mix {{ $portfolio->filter }} mix_all">
-                                                    <a href="/projects/project-ajax.html" class="open-project">
-                                                        <div class="folio-img-holder">
-                                                            <img src="{{ $portfolio->images }}" class="respimg transition" alt="{{ $portfolio->name }}" title="{{ $portfolio->name }}">
-                                                            <div class="folio-item">
-                                                                <div class="folio-overlay"></div>
-                                                                <span class="fol-but">Посмотреть</span>
+                                                    <div class="box grid-2 notvisible open-project-link mix {{ $portfolio->filter }} mix_all">
+                                                        <a href="/projects/project-ajax.html" class="open-project">
+                                                            <div class="folio-img-holder">
+                                                                <img src="{{ $portfolio->images }}" class="respimg transition" alt="{{ $portfolio->name }}" title="{{ $portfolio->name }}">
+                                                                <div class="folio-item">
+                                                                    <div class="folio-overlay"></div>
+                                                                    <span class="fol-but">Посмотреть</span>
+                                                                </div>
                                                             </div>
+                                                        </a>
+                                                        <div class=box-details>
+                                                            <h3>{{ $portfolio->name }}</h3>
                                                         </div>
-                                                    </a>
-                                                    <div class=box-details>
-                                                        <h3>{{ $portfolio->name }}</h3>
                                                     </div>
-                                                </div>
-
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
