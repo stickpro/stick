@@ -358,7 +358,7 @@
                                                     <div class="box grid-2 notvisible open-project-link mix {{ $portfolio->filter }} mix_all">
                                                         <a href="/projects/project-ajax.html" class="open-project">
                                                             <div class="folio-img-holder">
-                                                                <img src="{{ $portfolio->images }}" class="respimg transition" alt="{{ $portfolio->name }}" title="{{ $portfolio->name }}">
+                                                                <img src="{{ asset('assets/images/folio/' . $portfolio->images) }}" class="respimg transition" alt="{{ $portfolio->name }}" title="{{ $portfolio->name }}">
                                                                 <div class="folio-item">
                                                                     <div class="folio-overlay"></div>
                                                                     <span class="fol-but">Посмотреть</span>
