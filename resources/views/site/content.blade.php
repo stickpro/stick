@@ -327,85 +327,55 @@
                             </div>
                             <div class=overlay></div>
                         </div>
-                        @if(isset($portfolios) && is_object($portfolios))   
-                        <section id=folio class=gray-bg>
-                            <div id=options>
-                                <ul id=filters class=option-set data-option-key=filter>
-                                    @if(isset($tags)) 
-                                     
-                                    <li class="filter actcat transition" data-filter=all>Все</li>
-                                    
-                                    @foreach($tags as $tag)
-                                        <li class="filter transition" data-filter={{$tag}}>{{$tag}} </li>
-                                    @endforeach
-                                  
-                                    @endif
-                                </ul>
-                            </div>
-                               
-                            <div id=project-page-holder>
-                                <div class=clearfix></div>
-                               @if(isset($portfolios) && is_object($portfolios))  
-                                @foreach($portfolios as $item)
-                                <div id=project-page-data><div class="item-data project-page">
-                                        <div class="content">
-                                            <div class="prject-ajax-box">
-                                                <div class="left-colum elemajax">
-                                                    <div id="project-slider" class="owl-carousel">
-                                                       
-                                                        <div class="item"><img src="images/folio/likwid.png" class="respimg"></div>
-                                                   
-                                                    </div>
-                                                </div>
-                                                <div class="right-colum elemajax">
-                                                    <div class="project-discription">
-                                                        <h3>{{$item->name}}</h3>
-                                                        <h4>design / web</h4>
-                                                        <p>Сайт визитка, фирмы занимающейся ликвидацией прдприятий</p>
-                                                        <a href="http://new.ub-pravoved.ru/" class="button float-button content-button   transition hide-icon"><i class="fa fa-angle-right transition2"></i> <span class="text transition color-bg">Посмотреть проект</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></div>
-                                     @endforeach
-                                     @endif
-                                <div class=clearfix></div>
-                                <div id=project-page-button class=clearfix>
-                                    <a id=project_close class=transition href=#><i class="fa fa-times"></i></a>
-                                </div>
-                            </div>
 
-                            <div class=clearfix></div>
-                      
-                            <div class=content>
-                                <div class=row-fluid>
-                                    <div class=span12>
-                                        <div id=folio_container>
-                                             @foreach($portfolios as $item)
-                                            <div class="box grid-2 notvisible open-project-link mix {{$item->filter}} mix_all">
-                                                <a href={{route  ('page', array('alias'=>$item->alias))}} class=open-project>
-                                                    <div class=folio-img-holder>
-                                                        {{Html::image('assets/images/folio/'.$item->images, $item->name)}}
-                                                       
-                                                        <div class=folio-item>
-                                                            <div class=folio-overlay></div>
-                                                            <span class=fol-but>Посмотреть</span>
+                        @if($portfolios)
+                            <section id="folio" class="gray-bg">
+                                <div id="options">
+                                    <ul id="filters" class="option-set" data-option-key="filter">
+                                        <li class="filter actcat transition" data-filter="all">Все</li>
+                                        @foreach($tags as $tag)
+                                            <li class="filter transition" data-filter="{{$tag}}">{{$tag}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                <div id="project-page-holder">
+                                    <div class="clearfix"></div>
+                                    <div id="project-page-data"></div>
+                                    <div class="clearfix"></div>
+                                    <div id="project-page-button" class="clearfix">
+                                        <a id="project_close" class="transition" href="#"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class=clearfix></div>
+
+                                <div class="content">
+                                    <div class="row-fluid">
+                                        <div class="span12">
+                                            <div id="folio_container">
+                                               @foreach($portfolios as $portfolio)
+                                                <div class="box grid-2 notvisible open-project-link mix {{ $portfolio->filter }} mix_all">
+                                                    <a href="/projects/project-ajax.html" class="open-project">
+                                                        <div class="folio-img-holder">
+                                                            <img src="{{ $portfolio->images }}" class="respimg transition" alt="{{ $portfolio->name }}" title="{{ $portfolio->name }}">
+                                                            <div class="folio-item">
+                                                                <div class="folio-overlay"></div>
+                                                                <span class="fol-but">Посмотреть</span>
+                                                            </div>
                                                         </div>
+                                                    </a>
+                                                    <div class=box-details>
+                                                        <h3>{{ $portfolio->name }}</h3>
                                                     </div>
-                                                </a>
-                                                <div class=box-details>
-                                                    <h3>{{$item->name}}</h3>
                                                 </div>
+
                                             </div>
-                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        </section>
-                             @endif
+                            </section>
+                        @endif
                     </div>
                 </div>
                   
